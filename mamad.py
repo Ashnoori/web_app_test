@@ -9,7 +9,8 @@ df = pd.DataFrame({"one": [1, 2, 3], "two": [4, 5, 6], "three": [7, 8, 9]})
 st.write(df)
 
 st.title("Connect to Google Sheets")
-gsheet_url = "https://docs.google.com/spreadsheets/d/1wox2CUPqErX1GRs51_oKgKJZccJRLdf5m5z-KpBGHCQ/edit?usp=sharing"
+# gsheet_url = "https://docs.google.com/spreadsheets/d/1wox2CUPqErX1GRs51_oKgKJZccJRLdf5m5z-KpBGHCQ/edit?usp=sharing"
+gsheet_url = st.secrets["https://docs.google.com/spreadsheets/d/1wox2CUPqErX1GRs51_oKgKJZccJRLdf5m5z-KpBGHCQ/edit?usp=sharing"]
 conn = connect()
 rows = conn.execute(f'SELECT * FROM "{gsheet_url}"')
 df_gsheet = pd.DataFrame(rows)
